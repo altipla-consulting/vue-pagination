@@ -16,8 +16,5 @@
   "homepage": "https://github.com/altipla-consulting/vue-pagination#readme",
   "peerDependencies": {
     "vue": "^3.0.0-beta.18"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
