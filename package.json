@@ -1,0 +1,20 @@
+{
+  "name": "vue-pagination",
+  "version": "0.0.1",
+  "description": "Vue pagination helpers.",
+  "main": "index.js",
+  "module": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/altipla-consulting/vue-pagination.git"
+  },
+  "author": "Altipla Consulting",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/altipla-consulting/vue-pagination/issues"
+  },
+  "homepage": "https://github.com/altipla-consulting/vue-pagination#readme",
+  "peerDependencies": {
+    "vue": "^3.0.0-beta.18"
+  }
+}
