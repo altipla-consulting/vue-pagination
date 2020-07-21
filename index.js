@@ -22,10 +22,10 @@ export function useClientAsyncPagination({pageSize = DEFAULT_PAGE_SIZE, fetch}) 
   let end = computed(() => Math.min((page.value + 1) * pageSize, totalSize.value))
   let hasNextPage = computed(() => end.value < totalSize.value)
   let hasPrevPage = computed(() => start.value > 0)
-  let isFirstPage = computed(() => page === 1)
-  let isLastPage = computed(() => page === totalPages.value)
   let isEmpty = computed(() => !firstUpdate.value && !totalSize.value)
   let totalPages = computed(() => Math.ceil(totalSize.value / pageSize.value) - 1)
+  let isFirstPage = computed(() => page === 1)
+  let isLastPage = computed(() => page === totalPages.value)
   let items = computed(() => {
     if (loading.value && !Object.keys(cache.value).length) {
       return []
@@ -150,10 +150,10 @@ export function useControlledPagination({fetch}) {
   let end = computed(() => Math.min((page.value + 1) * pageSize.value, totalSize.value))
   let hasNextPage = computed(() => end.value < totalSize.value)
   let hasPrevPage = computed(() => start.value > 0)
-  let isFirstPage = computed(() => page === 1)
-  let isLastPage = computed(() => page === totalPages.value)
   let isEmpty = computed(() => !firstUpdate.value && !totalSize.value)
   let totalPages = computed(() => Math.ceil(totalSize.value / pageSize.value) - 1)
+  let isFirstPage = computed(() => page === 1)
+  let isLastPage = computed(() => page === totalPages.value)
   let items = ref([])
 
   async function goTo(newPage, doNotScroll) {
