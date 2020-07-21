@@ -74,6 +74,14 @@ export function useClientAsyncPagination({pageSize = DEFAULT_PAGE_SIZE, fetch}) 
     goTo(page.value - 1)
   }
 
+  function firstPage() {
+    goTo(0)
+  }
+
+  function lastPage() {
+    goTo(totalPages.value)
+  }
+
   function setKeys(newKeys) {
     firstUpdate.value = false
     keys.value = [].concat(newKeys)
@@ -115,6 +123,8 @@ export function useClientAsyncPagination({pageSize = DEFAULT_PAGE_SIZE, fetch}) 
     items,
     nextPage,
     prevPage,
+    firstPage,
+    lastPage,
     mounted,
     pageSize,
 
@@ -162,6 +172,14 @@ export function useControlledPagination({fetch}) {
     goTo(page.value - 1)
   }
 
+  function firstPage() {
+    goTo(0)
+  }
+
+  function lastPage() {
+    goTo(totalPages.value)
+  }
+
   function setItems(newItems) {
     firstUpdate.value = false
     items.value = newItems
@@ -179,6 +197,8 @@ export function useControlledPagination({fetch}) {
     totalSize,
     hasNextPage,
     hasPrevPage,
+    firstPage,
+    lastPage,
     isEmpty,
     totalPages,
     items,
