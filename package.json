@@ -1,6 +1,6 @@
 {
   "name": "@altipla/vue-pagination",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Vue pagination helpers.",
   "main": "index.js",
   "module": "index.js",
