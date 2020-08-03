@@ -188,6 +188,7 @@ export function useControlledPagination({fetch}) {
 
   function setItems(newItems) {
     firstUpdate.value = false
+    loading.value = false
     items.value = newItems
   }
 
