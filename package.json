@@ -16,5 +16,20 @@
   "homepage": "https://github.com/altipla-consulting/vue-pagination#readme",
   "peerDependencies": {
     "vue": "^3.0.0-beta.18"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": "eslint --fix"
+  },
+  "devDependencies": {
+    "@altipla/eslint-config-vue": "^0.1.2",
+    "eslint": "^7.6.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11"
   }
 }
