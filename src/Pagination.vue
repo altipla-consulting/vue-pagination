@@ -3,13 +3,13 @@
   <header>
     <i>{{model.loading ? 'Loading...' : 'Success'}}</i>
     <p>
-      <button @click="model.firstPage" :disabled="model.isFirstPage"><strong>First page</button>
+      <button @click="model.firstPage" :disabled="model.isFirstPage" v-if="model.supportsFirstLast">First page</button>
       &nbsp;
-      <button @click="model.prevPage" :disabled="!model.hasPrevPage"><strong>Prev page</button>
+      <button @click="model.prevPage" :disabled="!model.hasPrevPage">Prev page</button>
       &nbsp;
-      <button @click="model.nextPage" :disabled="!model.hasNextPage"><strong>Next page</button>
+      <button @click="model.nextPage" :disabled="!model.hasNextPage">Next page</button>
       &nbsp;
-      <button @click="model.lastPage" :disabled="model.isLastPage"><strong>Last page</button>
+      <button @click="model.lastPage" :disabled="model.isLastPage" v-if="model.supportsFirstLast">Last page</button>
     </p>
   </header>
   <p>

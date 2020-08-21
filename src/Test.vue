@@ -1,6 +1,10 @@
 
 <template>
-  <input type="checkbox" v-model="delayed"> Delayed load
+  <label>
+    <input type="checkbox" v-model="delayed"> Delayed load
+  </label>
+
+  <hr>
   <h1>
     useClientAsyncPagination
     ( <a href="#" @click.prevent="fillClientAsync">fill data</a> )
@@ -13,6 +17,13 @@
     ( <a href="#" @click.prevent="fillControlled">fill data</a> )
   </h1>
   <Pagination :model="controlled"></Pagination>
+
+  <hr>
+  <h1>
+    useServerPagination
+    ( <a href="#" @click.prevent="fillServer">fill data</a> )
+  </h1>
+  <Pagination :model="server"></Pagination>
 </template>
 
 <script>
@@ -20,7 +31,7 @@ import { range } from 'lodash-es'
 
 import Pagination from './Pagination.vue'
 
-import { useClientAsyncPagination, useControlledPagination } from '../lib'
+import { useClientAsyncPagination, useControlledPagination, useServerPagination } from '../lib'
 
 
 async function delay(milliseconds) {
@@ -53,7 +64,30 @@ export default {
             await delay(3000)
           }
 
+          // Simulate server response
           that.controlled.setItems(range(min + 1, Math.min(101, max + 1)).map(key => ({ key })))
+        },
+      }),
+      server: useServerPagination({
+        delayStart: true,
+        async fetch({ pageToken, pageSize }) {
+          if (that.delayed) {
+            await delay(3000)
+          }
+
+          let min = 0
+          let max = pageSize
+          if (pageToken) {
+            let data = JSON.parse(pageToken)
+            min = data.min + pageSize
+            max = data.max + pageSize
+          }
+
+          return {
+            items: range(min + 1, max + 1).map(key => ({ key })),
+            nextPageToken: JSON.stringify({ min, max }),
+            totalSize: 100,
+          }
         },
       }),
     }
@@ -68,6 +102,10 @@ export default {
       this.controlled.totalSize = 100
       this.controlled.pageSize = 30
       this.controlled.setItems(range(1, 31).map(key => ({ key })))
+    },
+
+    fillServer() {
+      this.server.init()
     },
   },
 }
