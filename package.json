@@ -2,8 +2,8 @@
   "name": "@altipla/vue-pagination",
   "version": "0.3.3",
   "description": "Vue pagination helpers.",
-  "main": "index.js",
-  "module": "index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/altipla-consulting/vue-pagination.git"
@@ -15,9 +15,10 @@
   },
   "homepage": "https://github.com/altipla-consulting/vue-pagination#readme",
   "peerDependencies": {
-    "vue": "^3.0.0-beta.18"
+    "vue": "^3.0.0-rc.5"
   },
   "scripts": {
+    "dev": "vite",
     "lint": "eslint --ext .js,.vue '*.js'",
     "fix": "eslint --fix --ext .js,.vue .",
     "update-deps": "npm-check-updates -u --semverLevel major"
@@ -32,9 +33,12 @@
   },
   "devDependencies": {
     "@altipla/eslint-config-vue": "^0.1.2",
+    "@vue/compiler-sfc": "^3.0.0-rc.5",
     "eslint": "^7.6.0",
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.11"
+    "lint-staged": "^10.2.11",
+    "vite": "^1.0.0-rc.4",
+    "vue": "^3.0.0-rc.5"
   }
 }
