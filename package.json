@@ -17,6 +17,11 @@
   "peerDependencies": {
     "vue": "^3.0.0-beta.18"
   },
+  "scripts": {
+    "lint": "eslint --ext .js,.vue '*.js'",
+    "fix": "eslint --fix --ext .js,.vue .",
+    "update-deps": "npm-check-updates -u --semverLevel major"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

@@ -10,3 +10,7 @@ lint:
 
 fix:
 	npm run fix
+
+update-deps:
+	npm run update-deps
+	npm install

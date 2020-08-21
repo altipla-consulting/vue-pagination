@@ -4,15 +4,15 @@ import { ref, computed, readonly } from 'vue'
 import { scrollToElement } from './dom'
 
 
-const DEFAULT_PAGE_SIZE = 30;
+const DEFAULT_PAGE_SIZE = 30
 
 
-export function useClientAsyncPagination({pageSize = DEFAULT_PAGE_SIZE, fetch}) {
+export function useClientAsyncPagination({ pageSize = DEFAULT_PAGE_SIZE, fetch }) {
   let cache = ref({})
-  let cacheVersion = 0;
+  let cacheVersion = 0
 
   let firstUpdate = ref(true)
-  let elem;
+  let elem
 
   let loading = ref(true)
   let keys = ref([])
@@ -64,7 +64,7 @@ export function useClientAsyncPagination({pageSize = DEFAULT_PAGE_SIZE, fetch}) 
     loading.value = false
     page.value = newPage
     if (!doNotScroll) {
-      scrollToElement(elem, 20);
+      scrollToElement(elem, 20)
     }
   }
 
@@ -108,7 +108,7 @@ export function useClientAsyncPagination({pageSize = DEFAULT_PAGE_SIZE, fetch}) 
   }
 
   function mounted(newElem) {
-    elem = newElem;
+    elem = newElem
   }
 
   return {
@@ -138,9 +138,9 @@ export function useClientAsyncPagination({pageSize = DEFAULT_PAGE_SIZE, fetch}) 
 }
 
 
-export function useControlledPagination({fetch}) {
+export function useControlledPagination({ fetch }) {
   let firstUpdate = ref(true)
-  let elem;
+  let elem
 
   let loading = ref(true)
   let page = ref(0)
@@ -161,12 +161,12 @@ export function useControlledPagination({fetch}) {
     let max = min + pageSize.value
 
     loading.value = true
-    await fetch({min, max, page: newPage})
+    await fetch({ min, max, page: newPage })
     loading.value = false
 
     page.value = newPage
     if (!doNotScroll) {
-      scrollToElement(elem, 20);
+      scrollToElement(elem, 20)
     }
   }
 
@@ -193,7 +193,7 @@ export function useControlledPagination({fetch}) {
   }
 
   function mounted(newElem) {
-    elem = newElem;
+    elem = newElem
   }
 
   return {
