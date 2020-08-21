@@ -18,6 +18,7 @@
   <p>
     <code v-for="item in model.items" :key="item.key">{{item.key}}</code>
   </p>
+  <code>{{model}}</code>
 </template>
 
 <script>
