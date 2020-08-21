@@ -38,6 +38,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
+    "lodash-es": "^4.17.15",
     "vite": "^1.0.0-rc.4",
     "vue": "^3.0.0-rc.5"
   }
